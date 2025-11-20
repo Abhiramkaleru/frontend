@@ -1,5 +1,5 @@
 # --- Build Stage ---
-FROM node:18 AS build
+FROM node:20 AS build
 WORKDIR /app
 
 # Install dependencies
@@ -15,8 +15,8 @@ RUN npm run build
 # --- Production Stage ---
 FROM nginx:alpine
 
-# Replace default nginx config
-COPY ../nginx.conf /etc/nginx/conf.d/default.conf
+# Copy custom nginx config from the current context
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # Copy built React files
 COPY --from=build /app/build /usr/share/nginx/html
