@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div>
-      <h1>Frontend running working  dev</h1>
+      <h1>Frontend running working fixing dev</h1>
       <p>Backend says: {msg}</p>
     </div>
   );
